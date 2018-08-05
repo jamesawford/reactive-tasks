@@ -10,9 +10,11 @@ Use whatever languages, frameworks, etc. you feel are best, or are most comforta
 ## Requirements
 Create an application that will allow at least two users to access it simultaneously and manage a list of items. For example some daily tasks, a shared list for shopping. The items only require one text field.  
 
-The users should be able to perform standard create, view, update, delete, and if one user makes a change, the other user(s) should see the change without manually refreshing their web browser. Your solution should follow best practice, and be robust and scalable. We expect to see the same techniques and approaches that you would use in a real project.
+The users should be able to perform standard create, view, update, delete, and if one user makes a change, the other user(s) should see the change without manually refreshing their web browser. In Realtime. 
 
-## User Journeys (Stories)
+Your solution should follow best practice, and be robust and scalable. We expect to see the same techniques and approaches that you would use in a real project.
+
+## User Journeys
 * Mark wants to keep track of some daily tasks. He enters his name on a screen,
 and is presented with a list of tasks. He adds
     * ‘Brush teeth’
@@ -43,41 +45,37 @@ Please include any notes that you would like us to read, along with answers to t
 * What would you add to your solution if you had more time?
 
 ## This Project
-This stub project will provide a Meteor connection back to a server and database. This provides the realtime data to your application. Alternatively you could use Google Firebase. Or Amazon AppSync. Or write your own implementation for synchronising multiple clients using websockets etc. But that's a lot of work if you have not got something ready to go. 
+This stub project will provide a Meteor connection back to a server and database. This provides the realtime data to your application. Alternatively you could use Google Firebase. Or Amazon AppSync. Or write your own implementation for synchronising multiple clients using websockets etc. But that is a lot of work. 
 
-Meteor will run on your development machine, PC or Mac. You will need a development environment with node and git. 
+Meteor will run on your development machine, PC or Mac. You will need a development environment with node, npm and git. By cloning this repo you may not need to install the Meteor command in order to complete this project. The Meteor command allows you to create new Meteor projects with the Meteor directory structure and build system already in place.
 
-First install the Meteor command on your machine. 
-
-Then this development project is initialised using Meteor's own version of the NPM command like this:
+This project is installed like so:
 ```
 $ mkdir freeman  
 $ cd freeman  
 $ git clone **this repository**  
 $ cd **this repository**  
-$ meteor npm install  
-$ meteor # or npm start
+$ npm install  
+$ npm start
 ```
+Similarly you can run any of the scripts in package.json.
 
 Within meteor projects there is a .meteor folder that is a part of the source code. It is checked in to git. That folder hides a MongoDB database. If everything goes wrong try deleting these 2 project folders and re-install: ./node_modules and ./.meteor/local 
 
-Both ./node_modules and ./.meteor/local are built, they are ignored by git.
-
-You may use npm start to run this meteor project. And you can run any of the scripts in package.json. 
+Both ./node_modules and ./.meteor/local are built, they are ignored by git. 
 
 There is a simple example test: `$ npm run test` Or run it in the browser like this: `$ npm run test-app` 
 
-There is a the start of a client application in the `./client` folder. This points to your React application which you will write in the `./imports` folder. The client begins the page by linking to the Twitter Bootstrap CSS file, but you are free to delete this and use something else. The server side code is very simple in this case. See `./server` folder. 
+There is a the start of a client application in the `./client` folder. This points to your React application component <App />  which you will write in the `./imports` folder. The client begins the page by linking to the Twitter Bootstrap CSS file, without jQuery, but you are free to delete this and use something else. The server side code is very simple in this case. See `./server` folder. 
 
 ## Tasks Collection
-Already a collection of list items has been declared on the server and on the client `Tasks`. The collection appears within the App as an array `this.props.tasks`. The same data is available and synchronized to all clients. This data will be synchronized by Meteor into a Mongo database.
+Already a collection of list items has been declared on the server and on the client `Tasks`. The collection appears within the App as an array `this.props.tasks`. This data will be synchronized by Meteor into a Mongo database and synchronized to all clients.
 
 ## Requirement
-You may need a form to add and update the list items. You may need a list container to display and delete items. Your App may need to provide behaviour actions as props to these lower level list and form components. Your App may need to provide the collection of tasks or a single task into these components as props - but these kinds of decisions are for you.
+How you display, delete, add and edit items are decisions for you.
 
 Open and navigate 2 or more tabs in your browser to http://localhost:3000/
 
-If you enter data in one you should see the immediate results in the other.
+If you enter data in one you should automatically / immediately see the results in the other.
 
 They should remain synchronized as you add, delete and update the task list items in either client.
-
